@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vine Visita</title>
+<link rel="stylesheet" href="hotel.css">
+</head>
+<body>
+    <header class="site-header">
+    <div class="logo">
+        <!-- Placeholder logo -->
+        <img src="https://images.scalebranding.com/palm-tree-logo-24fb5e34-95a4-4fd2-baa7-05e9634d6b03.jpg" alt="Logo">
+    </div>
+    <h1 class="site-title">Vine Visita Hotel</h1>
+</header>
+
+<div class="hotel-grid">
+
+    <!-- === Container 1 === -->
+    <div class="hotel-container" data-id="1">
+        <h1>Suite</h1>
+        <h3>Vine Visita</h3>
+        <h3>Check-In a guest by typing a name, then pressing the button. Max 4 guests per room.</h3>
+        <input type="text" placeholder="Enter a guest name">
+        <button class="add-btn">Add Guest</button>
+        <input type="text" placeholder="Enter a guest name to remove">
+        <button class="remove-btn">Remove Guest</button>
+        <h2 class="guest-list"></h2>
+        <h3 class="room-status"></h3>
+        <button class="lock-btn">Lock Room</button>
+        <button class="unlock-btn">Unlock Room</button>
+        <button class="clear-btn">Clear Room</button>
+    </div>
+
+    <!-- === Container 2 === -->
+    <div class="hotel-container" data-id="2">
+        <h1>Suite</h1>
+        <h3>Vine Visita</h3>
+        <h3>Check-In a guest by typing a name, then pressing the button. Max 4 guests per room.</h3>
+        <input type="text" placeholder="Enter a guest name">
+        <button class="add-btn">Add Guest</button>
+        <input type="text" placeholder="Enter a guest name to remove">
+        <button class="remove-btn">Remove Guest</button>
+        <h2 class="guest-list"></h2>
+        <h3 class="room-status"></h3>
+        <button class="lock-btn">Lock Room</button>
+        <button class="unlock-btn">Unlock Room</button>
+        <button class="clear-btn">Clear Room</button>
+    </div>
+
+    <!-- === Container 3 === -->
+    <div class="hotel-container" data-id="3">
+        <h1>Suite</h1>
+        <h3>Vine Visita</h3>
+        <h3>Check-In a guest by typing a name, then pressing the button. Max 4 guests per room.</h3>
+        <input type="text" placeholder="Enter a guest name">
+        <button class="add-btn">Add Guest</button>
+        <input type="text" placeholder="Enter a guest name to remove">
+        <button class="remove-btn">Remove Guest</button>
+        <h2 class="guest-list"></h2>
+        <h3 class="room-status"></h3>
+        <button class="lock-btn">Lock Room</button>
+        <button class="unlock-btn">Unlock Room</button>
+        <button class="clear-btn">Clear Room</button>
+    </div>
+
+    <!-- === Container 4 === -->
+    <div class="hotel-container" data-id="4">
+        <h1>Suite</h1>
+        <h3>Vine Visita</h3>
+        <h3>Check-In a guest by typing a name, then pressing the button. Max 4 guests per room.</h3>
+        <input type="text" placeholder="Enter a guest name">
+        <button class="add-btn">Add Guest</button>
+        <input type="text" placeholder="Enter a guest name to remove">
+        <button class="remove-btn">Remove Guest</button>
+        <h2 class="guest-list"></h2>
+        <h3 class="room-status"></h3>
+        <button class="lock-btn">Lock Room</button>
+        <button class="unlock-btn">Unlock Room</button>
+        <button class="clear-btn">Clear Room</button>
+    </div>
+
+    <!-- === Container 5 === -->
+    <div class="hotel-container" data-id="5">
+        <h1>Suite</h1>
+        <h3>Vine Visita</h3>
+        <h3>Check-In a guest by typing a name, then pressing the button. Max 4 guests per room.</h3>
+        <input type="text" placeholder="Enter a guest name">
+        <button class="add-btn">Add Guest</button>
+        <input type="text" placeholder="Enter a guest name to remove">
+        <button class="remove-btn">Remove Guest</button>
+        <h2 class="guest-list"></h2>
+        <h3 class="room-status"></h3>
+        <button class="lock-btn">Lock Room</button>
+        <button class="unlock-btn">Unlock Room</button>
+        <button class="clear-btn">Clear Room</button>
+    </div>
+
+    <!-- === Container 6 === -->
+    <div class="hotel-container" data-id="6">
+        <h1>Suite</h1>
+        <h3>Vine Visita</h3>
+        <h3>Check-In a guest by typing a name, then pressing the button. Max 4 guests per room.</h3>
+        <input type="text" placeholder="Enter a guest name">
+        <button class="add-btn">Add Guest</button>
+        <input type="text" placeholder="Enter a guest name to remove">
+        <button class="remove-btn">Remove Guest</button>
+        <h2 class="guest-list"></h2>
+        <h3 class="room-status"></h3>
+        <button class="lock-btn">Lock Room</button>
+        <button class="unlock-btn">Unlock Room</button>
+        <button class="clear-btn">Clear Room</button>
+    </div>
+
+</div>
+
+<!-- === Master Guest Check-In List === -->
+<div class="master-list-container">
+    <h1>All Guests Checked In</h1>
+    <h2 id="master-list"></h2>
+</div>
+
+<script>
+const masterList = [];
+const rooms = document.querySelectorAll('.hotel-container');
+
+rooms.forEach(room => {
+    const roomId = room.dataset.id;
+    let guests = [];
+
+    const addBtn = room.querySelector('.add-btn');
+    const removeBtn = room.querySelector('.remove-btn');
+    const lockBtn = room.querySelector('.lock-btn');
+    const unlockBtn = room.querySelector('.unlock-btn');
+    const clearBtn = room.querySelector('.clear-btn');
+    const guestInput = room.querySelector('input[type="text"]');
+    const removeInput = room.querySelectorAll('input[type="text"]')[1];
+    const guestListEl = room.querySelector('.guest-list');
+    const roomStatus = room.querySelector('.room-status');
+
+    addBtn.addEventListener('click', () => {
+        let name = guestInput.value.trim();
+        if (!name) return;
+
+        if (guests.length >= 4) {
+            roomStatus.innerHTML = "Room full! Remove a guest first.";
+            guestInput.disabled = true;
+            return;
+        }
+
+        const time = new Date().toLocaleTimeString();
+        const entry = name + " <small>(" + time + ")</small>";
+
+        guests.push(entry);
+        updateRoomDisplay();
+        guestInput.value = "";
+
+        masterList.push(`Room ${roomId}: ${name} (${time})`);
+        updateMasterList();
+    });
+
+    removeBtn.addEventListener('click', () => {
+        let name = removeInput.value.trim();
+        if (!name) return;
+
+        guests = guests.filter(g => !g.includes(name));
+        updateRoomDisplay();
+        removeInput.value = "";
+        if (guests.length < 4) guestInput.disabled = false;
+    });
+
+    lockBtn.addEventListener('click', () => {
+        guestInput.disabled = true;
+        roomStatus.innerHTML = "Room is locked.";
+    });
+
+    unlockBtn.addEventListener('click', () => {
+        guestInput.disabled = false;
+        roomStatus.innerHTML = "Room is unlocked.";
+        if (guests.length >= 4) guestInput.disabled = true;
+    });
+
+    clearBtn.addEventListener('click', () => {
+        guests = [];
+        updateRoomDisplay();
+        guestInput.disabled = false;
+    });
+
+    function updateRoomDisplay() {
+        guestListEl.innerHTML = guests.map((g,i) => `${i+1}. ${g}`).join('<br>');
+    }
+});
+
+function updateMasterList() {
+    document.getElementById('master-list').innerHTML = masterList.map((g,i) => `${i+1}. ${g}`).join('<br>');
+}
+</script>
+</body>
+</html>

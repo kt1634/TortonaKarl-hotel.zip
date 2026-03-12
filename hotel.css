@@ -1,0 +1,161 @@
+/* hotel.css */
+
+body {
+    background-image: url("https://img.freepik.com/free-photo/blur-pool-hotel-resort_74190-5769.jpg?semt=ais_rp_progressive&w=740&q=80");
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: 'Georgia', serif;
+    color: #fff;
+    min-height: 100vh;
+}
+
+.hotel-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-template-rows: repeat(2, auto);  /* 2 rows */
+    gap: 30px; /* more space between containers */
+    padding: 30px;
+    justify-items: center;
+    align-items: start;
+}
+
+/* Common container style for all 6 containers */
+.hotel-container,
+.hotel-container-2,
+.hotel-container-3,
+.hotel-container-4,
+.hotel-container-5,
+.hotel-container-6 {
+    background-color: rgba(39, 63, 35, 0.9);
+    padding: 20px; /* smaller padding for more breathing room */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    max-width: 250px; /* smaller width to allow more space */
+    text-align: center;
+    backdrop-filter: blur(8px);
+    overflow-y: auto;
+    max-height: 60vh; /* slightly smaller height */
+}
+
+h1 {
+    margin-top: 0;
+    color: #f1c40f;
+    font-size: 2.5em;
+    border-bottom: 2px solid #f1c40f;
+    padding-bottom: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h3 {
+    color: #ddd;
+    margin-bottom: 15px;
+}
+
+input[type="text"] {
+    padding: 12px;
+    width: calc(100% - 24px);
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #333;
+    font-size: 1em;
+}
+
+button {
+    padding: 12px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    opacity: 0.7;
+}
+
+/* Specific colors for different actions */
+button:nth-of-type(1) { /* Add Guest */
+    background-color: #28a745;
+    color: white;
+}
+
+button:nth-of-type(2) { /* Remove Guest */
+    background-color: #f1c40f;
+    color: #333;
+}
+
+button:nth-of-type(3) { /* Lock Room */
+    background-color: #2b9f4e;
+    color: white;
+}
+
+button:nth-of-type(4) { /* Unlock Room */
+    background-color: #6c757d;
+    color: white;
+}
+
+h2#placeholder,
+h2#placeholder2,
+h2#placeholder2_2,
+h2#placeholder2_3,
+h2#placeholder2_4,
+h2#placeholder2_5,
+h2#placeholder2_6 {
+    margin-top: 20px;
+    text-align: left;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+h3#placeholder3,
+h3#placeholder3_2,
+h3#placeholder3_3,
+h3#placeholder3_4,
+h3#placeholder3_5,
+h3#placeholder3_6,
+h3#placeholder4,
+h3#placeholder4_2,
+h3#placeholder4_3,
+h3#placeholder4_4,
+h3#placeholder4_5,
+h3#placeholder4_6 {
+    margin-top: 10px;
+    color: #dc3545;
+    font-size: 0.9em;
+}
+/* === Site Header === */
+.site-header {
+    display: flex;
+    align-items: center;
+    background-color: rgba(39, 63, 35, 0.9); /* match container color */
+    padding: 10px 30px;
+    border-bottom: 2px solid #f1c40f;
+    backdrop-filter: blur(6px);
+    color: #fff;
+}
+
+.site-header .logo img {
+    width: 80px; /* adjust size of logo */
+    height: 80px;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.site-header .site-title {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 2rem;
+    color: #f1c40f;
+    margin: 0;
+}
